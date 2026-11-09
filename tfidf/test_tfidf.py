@@ -1,11 +1,11 @@
 import math
 
 from tfidf import (
-    tokenise_doc,
-    compute_term_frequency,
-    compute_inverse_doc_frequency,
-    compute_tf_idf,
     build_tfidf,
+    compute_inverse_doc_frequency,
+    compute_term_frequency,
+    compute_tf_idf,
+    tokenise_doc,
 )
 
 
