@@ -1,10 +1,11 @@
-from typing import List, Dict
-from math import log
-import pandas as pd
-from collections import Counter
 import argparse
 import json
 import re
+from collections import Counter
+from math import log
+from typing import Dict, List
+
+import pandas as pd
 
 
 def tokenise_doc(text: str) -> List[str]:

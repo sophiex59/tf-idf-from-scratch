@@ -1,46 +1,46 @@
-### TF-IDF Implementation in Python
-A from-scratch implementation of the Term Frequency–Inverse Document Frequency (TF-IDF) algorithm in Python 3.12. This project demonstrates how to calculate TF-IDF scores for documents without using any pre-built TF-IDF libraries, while supporting tokenization, term frequency calculation, and inverse document frequency computation.
+# TF-IDF from scratch
 
-### Prerequisites:
-- Python (>=3.12)
-- Poetry for dependency management.
+[![CI](https://github.com/sophiex59/tf-idf-from-scratch/actions/workflows/ci.yml/badge.svg)](https://github.com/sophiex59/tf-idf-from-scratch/actions/workflows/ci.yml)
 
-### Install Dependencies
-Ensure you have poetry with pip install poetry or similar. Then run:
-python -m poetry install
+A Python implementation of Term Frequency–Inverse Document Frequency without a pre-built TF-IDF library.
 
+## Usage
 
-### Usage
-Either run with a default corpus:
-python tfidf/tfidf.py
+Install dependencies and generate `tfidf.csv` from the bundled sample corpus:
 
-Or using a json file with list of documents:
-python tfidf/tfidf.py --corpus path/to/corpus.json
+```sh
+poetry install
+poetry run python tfidf/tfidf.py
+```
 
-If using the latter, each document should be a string inside a JSON array.
+To process a JSON file containing a list of document strings:
+
+```sh
+poetry run python tfidf/tfidf.py --corpus path/to/corpus.json
+```
+
+For example, the input JSON can be:
+
+```json
 [
-    "Document one text here.",
-    "Document two text here."
+  "Document one text here.",
+  "Document two text here."
 ]
+```
 
+## Output
 
-### Output
+The CSV contains `doc_index`, `term`, and `tf_idf_score`; terms in each document are sorted by descending TF-IDF score.
 
-The script outputs a CSV file with the following columns:
-doc_index – the index of the document in the corpus
-term – the tokenized term
-tf_idf_score – the TF-IDF weight of the term
-Terms in each document are sorted by descending TF-IDF score.
+## Testing
 
+```sh
+poetry run pytest
+```
 
-### Testing
-Run the automated tests with:
-pytest
+## Linting
 
-### Linting
-Check and auto-format code using Ruff:
-
-ruff check .
-ruff format .
-
-You can configure line length and other rules in pyproject.toml.
+```sh
+poetry run ruff check .
+poetry run ruff format .
+```
